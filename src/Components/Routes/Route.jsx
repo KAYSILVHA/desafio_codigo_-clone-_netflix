@@ -2,15 +2,19 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from "../../Home.jsx"
 import Login from '../Pages/Login/Login';
+import ProtectedRoute from '../Services/ProtectedRoute .jsx';
 
 
 function AppRoutes() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/home" element={<Home/>} />
-                {/* <Route path="/movie/:id" element={<MovieDetails />} /> */}
+                <Route path="/auth" element={<Login />} />
+                <Route
+                    path="/home"
+                    element={<ProtectedRoute><Home /></ProtectedRoute>}
+                />
+                <Route path="/" element={<Navigate to="/auth" />} />
             </Routes>
         </BrowserRouter>
     );

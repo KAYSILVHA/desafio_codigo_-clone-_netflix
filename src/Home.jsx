@@ -1,14 +1,20 @@
-import { useState } from 'react'
-import Layout from './Components/Layout/Layout';
-
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('auth');
+    navigate('/auth');
+  };
 
   return (
-    <>
-    <Layout/>
-    </>
-  )
+    <div>
+      <h2>Bem-vindo à Página Inicial</h2>
+      <button onClick={handleLogout}>Sair</button>
+    </div>
+  );
 }
 
 export default Home;
