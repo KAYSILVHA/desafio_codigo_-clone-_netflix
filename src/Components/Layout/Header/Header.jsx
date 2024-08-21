@@ -32,10 +32,9 @@ function Header() {
                 <NavLink href="/movies">Movies</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/about">Series</NavLink>
+                <NavLink href="/series">Series</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/contact">MyList</NavLink>
               </NavItem>
               {/* Implementar Barra de pesquisa */}
             </Nav>

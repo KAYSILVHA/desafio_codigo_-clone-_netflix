@@ -1,8 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
-import "./assets/styles/Style.scss"
-import Layout from './Components/Layout/Layout';
+import "./assets/styles/globalStyle.scss"
+import Header from './Components/Layout/Header/Header';
+import Footer from './Components/Layout/Footer/Footer';
 
 function Home() {
   const navigate = useNavigate();
@@ -13,9 +14,13 @@ function Home() {
   };
 
   return (
-    <div>
-      <Layout/>
+    <div className='layout'>
+      <Header />
+      <div>
+        <Outlet />
+      </div>
       <button onClick={handleLogout}>Sair</button>
+      <Footer />
     </div>
   );
 }
