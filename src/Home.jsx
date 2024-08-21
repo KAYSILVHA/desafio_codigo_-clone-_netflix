@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import "./assets/styles/Style.scss"
+import Layout from './Components/Layout/Layout';
 
 function Home() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ function Home() {
 
   return (
     <div>
-      <h2>Bem-vindo à Página Inicial</h2>
+      <Layout/>
       <button onClick={handleLogout}>Sair</button>
     </div>
   );

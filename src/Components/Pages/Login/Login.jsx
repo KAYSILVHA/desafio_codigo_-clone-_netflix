@@ -1,15 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Container, Input } from 'reactstrap';
-
-import "./assets/style/style.scss"
-
+import { Button, Container, Input, InputGroup, InputGroupAddon, } from 'reactstrap';
+import "./assets/style/style.scss";
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -32,13 +30,26 @@ function Login() {
           onChange={(e) => setEmail(e.target.value)}
           className='mb-3 input'
         />
-        <Input
-          type="password"
-          placeholder="Senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className='mb-3 input'
-        />
+        <div className='d-flex'>
+          <InputGroup>
+            <Input
+              type={showPassword ? 'text' : 'password'}
+              placeholder="Senha"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className='mb-3 input'
+            />
+            <InputGroupAddon
+              addonType="prepend"
+              onClick={() => setShowPassword(!showPassword)}
+              className='ms-2'
+            >
+              {showPassword ? 'Ocultar' : 'Mostrar'}
+            </InputGroupAddon>
+
+          </InputGroup>
+
+        </div>
         <Button
           onClick={handleLogin}
           className='button'
