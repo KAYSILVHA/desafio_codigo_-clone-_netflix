@@ -22,26 +22,31 @@ function Login() {
   };
 
   return (
-    <Container className='container-bg d-flex align-items-center justify-content-center'>
-      <div className='d-flex flex-column container-data'>
+    <div className='container-bg d-flex align-items-center justify-content-center'>
+      <div className='d-flex flex-column container-data justify-content-center'>
         <h2>Entrar</h2>
         <Input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className='mb-3'
+          className='mb-3 input'
         />
         <Input
           type="password"
           placeholder="Senha"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className='mb-3'
+          className='mb-3 input'
         />
-        <Button onClick={handleLogin}>Entrar</Button>
+        <Button
+          onClick={handleLogin}
+          className='button'
+        >
+          Entrar
+        </Button>
       </div>
-    </Container>
+    </div>
   );
 }
 

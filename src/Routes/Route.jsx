@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Home from "../../Home.jsx"
-import Login from '../Pages/Login/Login';
+import Home from "../Home.jsx"
+import Login from '../Components/Pages/Login/Login.jsx';
 import ProtectedRoute from '../Services/ProtectedRoute .jsx';
 
 
