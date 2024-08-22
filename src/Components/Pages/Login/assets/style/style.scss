@@ -7,28 +7,74 @@
 .container-bg {
     width: 100vw;
     height: 100vh;
-    background-image: url("../images/bg-login.jpg");
+    background-image: url("../images/bg-login.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .container-data {
-    background-color: rgba(0, 0, 0, 0.623);
+    background-color: rgba(0, 0, 0, 0.733);
     border-radius: 10px;
-    padding: 20px;
+    padding: 50px;
     color: white;
-    width: 500px;
+    width: auto;
+    max-width: 500px;
+    z-index: 300;
+    position: relative;
 
-    .input{
+    .input {
         background-color: rgba(29, 29, 29, 0.753);
-        border: 0;
+        border: 1px solid #adadad;
         color: white;
     }
 
-    .input::placeholder{
+    .input::placeholder {
         color: white;
     }
 
-    .button{
+    .button {
         background-color: red;
         border: 0;
+    }
+
+    .btn-show {
+        border: 1px solid red;
+        background-color: transparent;
+        cursor: pointer;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .label{
+        font-size: 0.9rem;
+        color: #adadad;
+    }
+
+
+    .info {
+        margin-top: 6rem;
+        font-size: 0.9rem;
+        color: #adadad;
+
+        span {
+            color: rgb(24, 124, 255);
+            text-decoration: underline;
+        }
+    }
+}
+
+
+.nav-brand {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    img {
+        width: 15rem;
+
+        @media screen and (max-width: 767px){
+            width: 10rem;
+        }
     }
 }
