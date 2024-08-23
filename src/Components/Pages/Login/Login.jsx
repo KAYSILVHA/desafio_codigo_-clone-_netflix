@@ -1,23 +1,24 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Card, CardBody, Container, Form, FormGroup, Input, InputGroup, InputGroupAddon, Label, } from 'reactstrap';
+import { Alert, Button, Card, CardBody, Container, Form, FormGroup, Input, InputGroup, Label } from 'reactstrap';
 import "./assets/style/style.scss";
-
 import NetflixLogo from "./assets/images/Netflix_Logo_PMS.png";
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = () => {
     if (email === 'user@example.com' && password === 'password') {
       localStorage.setItem('auth', 'true');
       navigate('/home');
+      setError(false);
     } else {
-      alert('Credenciais inválidas!');
+      setError(true);
     }
   };
 
@@ -49,15 +50,12 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     className='mb-3 input'
                   />
-                  <InputGroupAddon
-                    addonType="prepend"
+                  <div
                     onClick={() => setShowPassword(!showPassword)}
-                    className='ms-2'
+                    className='input-group-text btn-show ms-2 mb-3'
                   >
-                    <Button className='btn-show'>
-                      {showPassword ? 'Ocultar' : 'Mostrar'}
-                    </Button>
-                  </InputGroupAddon>
+                    {showPassword ? 'Ocultar' : 'Mostrar'}
+                  </div>
                 </InputGroup>
               </FormGroup>
               <FormGroup className='mb-4'>
@@ -74,6 +72,14 @@ function Login() {
             >
               Entrar
             </Button>
+            {
+              error &&(
+                <Alert color="danger" className='mt-3'>
+                  Credenciais Inválidas!
+                  Corrija e tente novamente.
+                </Alert>
+              )
+            }
             <div className='info'>
               <p>Esta página é protegida pelo Google reCAPTCHA para garantir que você não é um robô. <span>Saiba mais</span>.</p>
             </div>
