@@ -49,7 +49,7 @@ function Header() {
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar className='d-md-flex justify-content-md-end'>
             <Nav className="ml-auto nav d-md-flex" navbar>
-              <NavItem className='position-relative d-flex flex-column align-items-center'>
+              <NavItem className='position-relative d-flex flex-md-column flex-row align-items-center'>
                 <NavLink
                   href="#"
                   onClick={() => handleNavLinkClick('/home')}
@@ -59,7 +59,7 @@ function Header() {
                 </NavLink>
                 {location.pathname === '/home' && <span className="selected"></span>}
               </NavItem>
-              <NavItem className='position-relative d-flex flex-column align-items-center'>
+              <NavItem className='position-relative d-flex flex-md-column flex-row align-items-center'>
                 <NavLink
                   href="#"
                   onClick={() => handleNavLinkClick('/movies')}
@@ -69,7 +69,7 @@ function Header() {
                 </NavLink>
                 {location.pathname === '/movies' && <span className="selected"></span>}
               </NavItem>
-              <NavItem className='position-relative d-flex flex-column align-items-center'>
+              <NavItem className='position-relative d-flex flex-md-column flex-row align-items-center'>
                 <NavLink
                   href="#"
                   onClick={() => handleNavLinkClick('/series')}
