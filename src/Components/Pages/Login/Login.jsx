@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Card, CardBody, Container, Form, FormGroup, Input, InputGroup, InputGroupAddon, Label, } from 'reactstrap';
+import { Button, Card, CardBody, Container, Form, FormGroup, Input, InputGroup, InputGroupAddon, InputGroupText, Label, } from 'reactstrap';
 import "./assets/style/style.scss";
 
 import NetflixLogo from "./assets/images/Netflix_Logo_PMS.png";
@@ -49,15 +49,13 @@ function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     className='mb-3 input'
                   />
-                  <InputGroupAddon
-                    addonType="prepend"
+                  <InputGroupText
                     onClick={() => setShowPassword(!showPassword)}
-                    className='ms-2'
+                    className='ms-2 btn-show mb-3'
                   >
-                    <Button className='btn-show'>
+                    
                       {showPassword ? 'Ocultar' : 'Mostrar'}
-                    </Button>
-                  </InputGroupAddon>
+                  </InputGroupText>
                 </InputGroup>
               </FormGroup>
               <FormGroup className='mb-4'>
