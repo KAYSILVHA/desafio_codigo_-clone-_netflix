@@ -1,0 +1,29 @@
+.movie-details {
+    padding: 20px;
+  
+    .cast-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+  
+      .cast-member {
+        width: 150px;
+        text-align: center;
+  
+        .cast-member-img {
+          width: 100%;
+          height: auto;
+          border-radius: 8px;
+        }
+      }
+    }
+  
+    img {
+      margin-top: 20px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+  }
+  

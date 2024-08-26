@@ -19,11 +19,13 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const [searchTooltipOpen, setSearchTooltipOpen] = useState(false);
+  const [logoutTooltipOpen, setLogoutTooltipOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const toggleTooltip = () => setTooltipOpen(!tooltipOpen);
+  const toggleSearchTooltip = () => setSearchTooltipOpen(!searchTooltipOpen);
+  const toggleLogoutTooltip = () => setLogoutTooltipOpen(!logoutTooltipOpen);
   const toggle = () => setIsOpen(!isOpen);
 
   const handleLogout = () => {
@@ -39,6 +41,10 @@ function Header() {
     console.log(location.pathname);
   }, [location]);
 
+  const handleSearchClick = () => {
+    navigate('/search');
+  };
+
   return (
     <header className='container'>
       <Navbar dark expand="md">
@@ -49,7 +55,7 @@ function Header() {
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar className='d-md-flex justify-content-md-end'>
             <Nav className="ml-auto nav d-md-flex" navbar>
-              <NavItem className='position-relative d-flex flex-md-column flex-row align-items-center'>
+              {/* <NavItem className='position-relative d-flex flex-md-column flex-row align-items-center'>
                 <NavLink
                   href="#"
                   onClick={() => handleNavLinkClick('/home')}
@@ -78,6 +84,23 @@ function Header() {
                   Series
                 </NavLink>
                 {location.pathname === '/series' && <span className="selected"></span>}
+              </NavItem> */}
+              <NavItem>
+                <Button
+                  className='mt-1 bg-transparent border-0'
+                  id='search'
+                  onClick={handleSearchClick}
+                >
+                  <i className="fa-solid fa-search"></i>
+                </Button>
+                <Tooltip
+                  placement="top"
+                  isOpen={searchTooltipOpen}
+                  target="search"
+                  toggle={toggleSearchTooltip}
+                >
+                  Pesquisar
+                </Tooltip>
               </NavItem>
               <NavItem>
                 <Button
@@ -90,14 +113,13 @@ function Header() {
                 </Button>
                 <Tooltip
                   placement="top"
-                  isOpen={tooltipOpen}
+                  isOpen={logoutTooltipOpen}
                   target="logoutButton"
-                  toggle={toggleTooltip}
+                  toggle={toggleLogoutTooltip}
                 >
                   Sair
                 </Tooltip>
               </NavItem>
-              {/* Implementar Barra de pesquisa */}
             </Nav>
           </Collapse>
         </Container>

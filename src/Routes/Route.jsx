@@ -5,7 +5,8 @@ import Login from '../Components/Pages/Login/Login.jsx';
 import ProtectedRoute from '../Services/ProtectedRoute .jsx';
 
 import Movies from "../Components/Pages/Movies/Movies.jsx"
-import Series from "../Components/Pages/Series/Series.jsx"
+import MovieDetails from '../Components/Pages/Movies/Components/MovieDetails.jsx';
+import SearchPage from '../Components/Pages/Search/SearchPage.jsx';
 
 
 function AppRoutes() {
@@ -18,7 +19,8 @@ function AppRoutes() {
                     element={<ProtectedRoute><Home /></ProtectedRoute>}
                 />
                 <Route path="/movies" element={<Movies />} />
-                <Route path="/series" element={<Series />} />
+                <Route path="/search" element={<SearchPage />} />
+                <Route path="/movie/:id" element={<MovieDetails />}/>
                 <Route path="/" element={<Navigate to="/auth" />} />
             </Routes>
         </BrowserRouter>

@@ -1,27 +1,45 @@
+carousel-fade {
+  position: relative;
+  overflow: hidden; // Garante que o excesso seja cortado
+}
+
 .carousel-fade .carousel-item {
-    opacity: 0;
-    transition-property: opacity;
-    transition-duration: 0.6s;
-    transition-timing-function: ease-in-out;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.6s;
+  transition-timing-function: ease-in-out;
+}
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+  opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+  opacity: 0;
+}
+
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-prev {
+  transform: translateX(0);
+  transform: none;
+}
+
+.carousel-item {
+  height: 80vh;
+
+  @media screen and (max-width: 1400px) {
+    height: auto;
   }
-  
-  .carousel-fade .carousel-item.active,
-  .carousel-fade .carousel-item-next.carousel-item-left,
-  .carousel-fade .carousel-item-prev.carousel-item-right {
-    opacity: 1;
-  }
-  
-  .carousel-fade .active.carousel-item-left,
-  .carousel-fade .active.carousel-item-right {
-    opacity: 0;
-  }
-  
-  .carousel-fade .carousel-item-next,
-  .carousel-fade .carousel-item-prev,
-  .carousel-fade .carousel-item.active,
-  .carousel-fade .active.carousel-item-left,
-  .carousel-fade .active.carousel-item-prev {
-    transform: translateX(0);
-    transform: none;
-  }
-  
+}
+
+.carousel-fade .carousel-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}

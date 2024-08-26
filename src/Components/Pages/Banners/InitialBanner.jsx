@@ -2,23 +2,19 @@ import React, { useEffect } from 'react';
 import {
   Carousel,
   CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption
+  CarouselControl
 } from 'reactstrap';
 
-import "./assets/style/style.scss"
+import Banner1 from "./assets/images/background-rampage-banner-one.jpg";
+import Banner2 from "./assets/images/the-flash-tv-series-gs.jpg";
+import Banner3 from "./assets/images/netflix-series-5120x2880-16538.jpg";
+
+import "./assets/style/style.scss";
 
 const items = [
-  {
-    src: 'https://via.placeholder.com/1200x400?text=Imagem+1',
-  },
-  {
-    src: 'https://via.placeholder.com/1200x400?text=Imagem+2',
-  },
-  {
-    src: 'https://via.placeholder.com/1200x400?text=Imagem+3',
-  }
+  { src: Banner1 },
+  { src: Banner2 },
+  { src: Banner3 }
 ];
 
 function InitialBanner() {
@@ -37,28 +33,21 @@ function InitialBanner() {
     setActiveIndex(nextIndex);
   };
 
-  const goToIndex = (newIndex) => {
-    if (animating) return;
-    setActiveIndex(newIndex);
-  };
-
   useEffect(() => {
     const interval = setInterval(() => {
       next();
     }, 5000);
-
     return () => clearInterval(interval);
   }, [activeIndex, animating]);
 
-
-  const slides = items.map((item) => {
+  const slides = items.map((item, index) => {
     return (
       <CarouselItem
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        key={item.src}
+        key={index}
       >
-        <img src={item.src} alt={item.altText} style={{ width: '100%', height: 'auto', borderRadius: '10px' }} />
+        <img src={item.src} alt={`Slide ${index + 1}`} />
       </CarouselItem>
     );
   });
@@ -75,7 +64,6 @@ function InitialBanner() {
       <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
     </Carousel>
   );
-
 }
 
 export default InitialBanner;
