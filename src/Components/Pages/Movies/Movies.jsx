@@ -1,21 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { getTopRatedMovies, getMovieGenres, getMoviesByGenre } from '../../../Services/MoviesServices';
 import "../../../assets/styles/globalStyle.scss";
-
-import "./style.scss"
+import "./style.scss";
 import { Link } from 'react-router-dom';
+
 
 function Movies() {
     const [topRatedMovies, setTopRatedMovies] = useState([]);
     const [genres, setGenres] = useState([]);
     const [selectedGenre, setSelectedGenre] = useState(null);
     const [moviesByGenre, setMoviesByGenre] = useState([]);
-
-    console.log("moviesByGenre:". moviesByGenre);
-    console.log("genres:", genres);
-    console.log("moviesByGenre:", moviesByGenre);
-    console.log("selectedGenre:", selectedGenre);
-
 
     useEffect(() => {
         const fetchTopRatedMovies = async () => {
@@ -43,13 +37,34 @@ function Movies() {
         }
     }, [selectedGenre]);
 
+    const buttonStyle = (genreId) => ({
+        backgroundColor: genreId === selectedGenre ? 'red' : '#333',
+        color:'#fff',
+        border: 'none',
+        padding: '10px',
+        margin: '5px',
+        cursor: 'pointer',
+        transition: 'background-color 0.3s ease',
+        borderRadius: '18px',
+        width: '150px'
+    });
+
     return (
         <div className="movies-container">
             <h2>Filmes</h2>
             <div className="tabs">
-                <button onClick={() => setSelectedGenre(null)}>Mais Votados</button>
+                <button
+                    style={buttonStyle(null)}
+                    onClick={() => setSelectedGenre(null)}
+                >
+                    Mais Votados
+                </button>
                 {genres.map(genre => (
-                    <button key={genre.id} onClick={() => setSelectedGenre(genre.id)}>
+                    <button
+                        key={genre.id}
+                        style={buttonStyle(genre.id)}
+                        onClick={() => setSelectedGenre(genre.id)}
+                    >
                         {genre.name}
                     </button>
                 ))}
