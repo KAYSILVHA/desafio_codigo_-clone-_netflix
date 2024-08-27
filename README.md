@@ -35,60 +35,79 @@ Esse projeto foi desenvolvido com as seguintes tecnologias e ferramentas:
 ```
   src/
 │
-├── components/
-│   ├── Pages/
-│   │   ├── IpFinder/
-|   |   |   ├── styles/
-|   |   |   |   ├── Style.js
-|   |   |   ├── IPAddressFinders.jsx
-│   │   ├── Login/
-|   |   |   ├── styles/
-|   |   |   |   ├── Style.js
-|   |   |   ├── Login.jsx
-│   │   ├── MovieSearch/
-|   |   |   ├── styles/
-|   |   |   |   ├── Style.js
-|   |   |   ├── MovieSearchEngine.jsx
-│   │   ├── QRCodeGenerator/
-|   |   |   ├── styles/
-|   |   |   |   ├── Style.js
-|   |   |   ├── QRCodeGenerator.jsx
-│   │   ├── QuizApp/
-|   |   |   ├── styles/
-|   |   |   |   ├── Style.js
-|   |   |   ├── QuizApp.jsx
-│   │   ├── TodoApp/
-|   |   |   ├── styles/
-|   |   |   |   ├── Style.js
-|   |   |   ├── TodoApp.jsx
-│   │   ├── Translator/
-|   |   |   ├── styles/
-|   |   |   |   ├── Style.js
-|   |   |   ├── LanguageTranslator.jsx
+├── api/
+│   ├── tmdb.jsx
 │   └──
+├── assets/
+│   ├── images/
+|   └── 
+│   ├── styles/
+│   │   ├── globalStyle.scss/
+│   └──
+├── Components/
+│   ├── Layout/
+│   │   ├── Footer/
+|   |   |   ├── assets/
+|   |   |   |   ├── images/
+|   |   |   |   └──
+|   |   |   |   ├── style/
+|   |   |   |   |   ├── style.js
+|   |   |   │   └──
+|   |   |   ├── Footer.jsx
+|   |   |   └──
+│   │   ├── Header/
+|   |   |   ├── assets/
+|   |   |   |   ├── images/
+|   |   |   |   └──
+|   |   |   |   ├── style/
+|   |   |   |   |   ├── style.js
+|   |   |   │   └──
+|   |   |   ├── Header.jsx
+|   |   |   └──
+│   └── └──
+│   ├── Pages/
+│   │   ├── Banners/
+|   |   |   ├── assets/
+|   |   |   |   ├── images/
+|   |   |   |   └──
+|   |   |   |   ├── style/
+|   |   |   |   |   ├── style.js
+|   |   |   │   └──
+|   |   |   ├── InitialBanner.jsx
+|   |   |   └──
+│   │   ├── Login/
+|   |   |   ├── assets/
+|   |   |   |   ├── images/
+|   |   |   |   └──
+|   |   |   |   ├── style/
+|   |   |   |   |   ├── style.js
+|   |   |   │   └──
+|   |   |   ├── Login.jsx
+|   |   |   └──
+│   │   ├── Movies/
+|   |   |   ├── Components/
+|   |   |   |   ├── MovieDetails.jsx
+|   |   |   |   ├── style.scss
+|   |   |   │   └──
+|   |   |   ├── Movies.jsx
+|   |   |   ├── style.scss
+|   |   |   └──
+│   │   ├── Search/
+|   |   |   ├── SearchPage.jsx
+|   |   |   ├── style.scss
+|   |   |   └──
+│   └── └──
 │
-├── Services/
-│   ├── IpService/
-|   |   ├── index.js
-|   ├── MovieSearchService/
-|   |   ├── index.js
-|   ├── TodoService/
-|   |   ├── index.js
-|   ├── TranslatorService/
-|   |   ├── index.js
+├── Routes/
+│   ├── Route.jsx
 │   └──
 |
-├── styles/
-│   ├── App.css
-│   ├── Styles.js
+├── Services/
+│   ├── MoviesServices.jsx
+│   ├── ProtectedRoute .jsx
 │   └──
 │
-├── utils/
-│   ├── dataQuestions.js
-│   ├── quizUtils.js
-│   └──
-│
-└── App.jsx
+└── Home.jsx
 │
 └── main.jsx
 
