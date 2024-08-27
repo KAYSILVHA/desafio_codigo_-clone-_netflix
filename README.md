@@ -1,7 +1,7 @@
-<h1 align="center"> MULT APP </h1>
+<h1 align="center"> CLONE NETFLIX </h1>
 
 <p align="center">
-Desafio de aplicar melhorias em várias áreas, incluindo arquitetura, autenticação, trabalho com JSON e qualidade de código. Este projeto permitirá a pratica e o desenvolvimento de habilidades essenciais em desenvolvimento front-end.
+Desafio de replicar uma estrutura Front-End parecida com a NETFLIX. Este projeto permitirá a prática e o desenvolvimento de habilidades essenciais em desenvolvimento front-end.
 </p>
 <br>
 <p align="center">
@@ -14,33 +14,21 @@ Desafio de aplicar melhorias em várias áreas, incluindo arquitetura, autentica
 
 ## 🚀 Tecnologias
 
-Esse projeto foi desenvolvido com as seguintes tecnologias:
+Esse projeto foi desenvolvido com as seguintes tecnologias e ferramentas:
 
-- React
-- Vite
-- React Router
-- Styled Components
-- Axios
-- Git e Github
-
-### Tecnologias de Autenticação e Segurança
-
-- bcryptjs
-- jsonwebtoken
-
-### Bibliotecas de Interface de Usuário
-- react-icons
-- react-responsive-carousel
-- qrcode.react
+- **React**: Biblioteca JavaScript para construir interfaces de usuário.
+- **Vite**: Ferramenta de construção e desenvolvimento rápida.
+- **React Router**: Biblioteca para gerenciamento de navegação e rotas em aplicações React.
+- **Bootstrap**: Framework CSS para estilização rápida e responsiva.
+- **Reactstrap**: Biblioteca de componentes React para Bootstrap.
+- **Sass**: Pré-processador CSS para escrever estilos de forma mais eficiente.
+- **Axios**: Biblioteca para fazer requisições HTTP.
+- **FontAwesome**: Biblioteca de ícones vetoriais para estilizar ícones.
 
 ### Ferramentas de Desenvolvimento
-- ESLint
-- @types/react e @types/react-dom
-
-### Backend e API Mocking
-- express
-- json-server
-
+- **ESLint**: Ferramenta para identificar e corrigir problemas em código JavaScript.
+- **@types/react** e **@types/react-dom**: Tipagens TypeScript para React.
+- **@vitejs/plugin-react**: Plugin para integração do React com Vite.
 
 ## 📝 Estrutura
 
@@ -109,21 +97,17 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 🚀 Projeto
 
-O projeto é um aplicativo multifuncional, que integra várias ferramentas úteis em uma única plataforma. As principais funcionalidades incluem:
+## 🚀 Projeto
 
-1 - Localizador de IP: Permite encontrar o endereço IP de um dispositivo ou site rapidamente.
+O projeto é um clone da interface da Netflix e inclui as seguintes funcionalidades:
 
-2 - Pesquisa de Filmes: Uma aplicação para buscar informações sobre filmes, como sinopse, elenco, e avaliações.
-
-3 - Gerador de QR Codes: Ferramenta para criar QR Codes personalizados, facilitando o compartilhamento de links e informações.
-
-4 - Quiz de Perguntas e Respostas: Um jogo interativo com perguntas em diversos temas, ideal para testar conhecimentos e aprender de forma divertida.
-
-5- Gerenciador de Tarefas: Uma aplicação para organizar e gerenciar tarefas diárias, com funcionalidades como adicionar, editar, e marcar tarefas como concluídas.
-
-6 - Tradutor de Textos: Um tradutor integrado que facilita a tradução de textos entre diferentes idiomas de forma rápida e eficiente.
+1. **Página Inicial**: Exibe uma lista de filmes populares, em destaque e recomendações.
+2. **Detalhes do Filme**: Mostra detalhes sobre um filme selecionado, incluindo sinopse, elenco e avaliações.
+3. **Navegação**: Navegação entre diferentes seções da aplicação, incluindo home, detalhes e categorias de filmes.
+4. **Estilização Responsiva**: Utiliza Bootstrap e Sass para garantir uma interface atraente e adaptável a diferentes tamanhos de tela.
 
 <br>
+
 
 ## 🚀 Executar
 Siga os passos abaixo para configurar e executar o projeto localmente em sua máquina:
@@ -138,7 +122,7 @@ Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em s
 
 - Clone o repositório:
   ```
-  git clone https://github.com/seu-usuario/multi-app.git
+  git clone https://github.com/seu-usuario/desafio_codigo_-clone-_netflix.git
   ```
 - Navegue até o diretório do projeto
 
