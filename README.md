@@ -97,8 +97,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias e ferramentas:
 
 ## 🚀 Projeto
 
-## 🚀 Projeto
-
 O projeto é um clone da interface da Netflix e inclui as seguintes funcionalidades:
 
 1. **Página Inicial**: Exibe uma lista de filmes populares, em destaque e recomendações.
@@ -107,7 +105,6 @@ O projeto é um clone da interface da Netflix e inclui as seguintes funcionalida
 4. **Estilização Responsiva**: Utiliza Bootstrap e Sass para garantir uma interface atraente e adaptável a diferentes tamanhos de tela.
 
 <br>
-
 
 ## 🚀 Executar
 Siga os passos abaixo para configurar e executar o projeto localmente em sua máquina:
@@ -158,3 +155,9 @@ Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em s
 ```
   http://localhost:5173/
   ```
+
+### DADOS DE ACESSO
+
+- Utilize estas credenciais:
+  - SENHA: password
+  - EMAIL: user@example.com
