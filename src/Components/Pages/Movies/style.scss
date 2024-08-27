@@ -1,43 +1,68 @@
 .movies-container {
-    padding: 20px;
-    text-align: center;
-    
-    .tabs {
-      margin-bottom: 20px;
-      button {
-        margin: 5px;
-        padding: 10px 20px;
-        background-color: #333;
-        color: white;
-        border: none;
-        cursor: pointer;
-        &:hover {
-          background-color: #555;
-        }
-      }
-    }
-  
-    .movies-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-  
-      .movie-item {
-        margin: 15px;
-        img {
-          width: 200px;
-          border-radius: 10px;
-          transition: transform 0.3s;
-          &:hover {
-            transform: scale(1.05);
-          }
-        }
-        h3 {
-          margin-top: 10px;
-          font-size: 1rem;
-          color: #333;
-        }
-      }
-    }
-  }
-  
+  padding: 100px 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.navigation {
+  margin-bottom: 20px;
+}
+
+.navigation button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.movie-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+ transform: scale(1.05) ;
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.movie-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.movie-info h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.movie-info p {
+  margin: 5px 0 0;
+  font-size: 0.9rem;
+}

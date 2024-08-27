@@ -4,12 +4,11 @@ import "../../../assets/styles/globalStyle.scss";
 import "./style.scss";
 import { Link } from 'react-router-dom';
 
-
 function Movies() {
     const [topRatedMovies, setTopRatedMovies] = useState([]);
     const [genres, setGenres] = useState([]);
-    const [selectedGenre, setSelectedGenre] = useState(null);
-    const [moviesByGenre, setMoviesByGenre] = useState([]);
+    const [selectedGenre, setSelectedGenre] = useState('top-rated');
+    const [moviesByGenre, setMoviesByGenre] = useState({});
 
     useEffect(() => {
         const fetchTopRatedMovies = async () => {
@@ -28,34 +27,37 @@ function Movies() {
     }, []);
 
     useEffect(() => {
-        if (selectedGenre) {
-            const fetchMoviesByGenre = async () => {
-                const movies = await getMoviesByGenre(selectedGenre);
-                setMoviesByGenre(movies);
-            };
-            fetchMoviesByGenre();
+        const fetchMoviesByAllGenres = async () => {
+            const moviesByGenre = {};
+            for (const genre of genres) {
+                const movies = await getMoviesByGenre(genre.id);
+                moviesByGenre[genre.id] = movies;
+            }
+            setMoviesByGenre(moviesByGenre);
+        };
+        if (genres.length > 0) {
+            fetchMoviesByAllGenres();
         }
-    }, [selectedGenre]);
+    }, [genres]);
 
     const buttonStyle = (genreId) => ({
-        backgroundColor: genreId === selectedGenre ? 'red' : '#333',
-        color:'#fff',
+        backgroundColor: genreId === selectedGenre ? '#ff0000' : '#333',
+        color: '#fff',
         border: 'none',
-        padding: '10px',
+        padding: '10px 20px',
         margin: '5px',
         cursor: 'pointer',
         transition: 'background-color 0.3s ease',
-        borderRadius: '18px',
-        width: '150px'
+        borderRadius: '4px',
     });
 
     return (
-        <div className="movies-container">
-            <h2>Filmes</h2>
-            <div className="tabs">
+        <div className="container movies-container">
+            <h1>Filmes</h1>
+            <div className="navigation">
                 <button
-                    style={buttonStyle(null)}
-                    onClick={() => setSelectedGenre(null)}
+                    style={buttonStyle('top-rated')}
+                    onClick={() => setSelectedGenre('top-rated')}
                 >
                     Mais Votados
                 </button>
@@ -70,21 +72,27 @@ function Movies() {
                 ))}
             </div>
 
-            <div className="movies-list">
-                {!selectedGenre && topRatedMovies.map(movie => (
-                    <div key={movie.id} className="movie-item">
+            <div className="movies-grid">
+                {selectedGenre === 'top-rated' && topRatedMovies.map(movie => (
+                    <div key={movie.id} className="movie-card">
                         <Link to={`/movie/${movie.id}`}>
-                            <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
-                            <p>{movie.title}</p>
+                            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+                            <div className="movie-info">
+                                <h3>{movie.title}</h3>
+                                <p>{movie.release_date.split('-')[0]}</p>
+                            </div>
                         </Link>
                     </div>
                 ))}
 
-                {selectedGenre && moviesByGenre.map(movie => (
-                    <div key={movie.id} className="movie-item">
+                {selectedGenre !== 'top-rated' && moviesByGenre[selectedGenre] && moviesByGenre[selectedGenre].map(movie => (
+                    <div key={movie.id} className="movie-card">
                         <Link to={`/movie/${movie.id}`}>
-                            <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.title} />
-                            <p>{movie.title}</p>
+                            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.title} />
+                            <div className="movie-info">
+                                <h3>{movie.title}</h3>
+                                <p>{movie.release_date.split('-')[0]}</p>
+                            </div>
                         </Link>
                     </div>
                 ))}
