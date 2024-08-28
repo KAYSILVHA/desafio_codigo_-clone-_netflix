@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Button, Input, InputGroup, InputGroupText, ListGroup, ListGroupItem } from 'reactstrap';
 import { useNavigate } from 'react-router-dom';
-import { Input, ListGroup, ListGroupItem } from 'reactstrap';
 
-const API_KEY = 'd0009c846927c774ef6ff01114b8179e'; // Sua chave da API
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import "./style.scss";
+
+import { API_KEY } from '../../../api/tmdb';
 
 function SearchPage() {
   const [query, setQuery] = useState('');
@@ -29,25 +32,46 @@ function SearchPage() {
   };
 
   return (
-    <div className="search-page">
-      <Input 
-        type="text" 
-        placeholder="Buscar filmes..." 
-        value={query} 
-        onChange={handleSearchChange} 
-      />
-      <ListGroup className="mt-3">
-        {results.map(movie => (
-          <ListGroupItem 
-            key={movie.id} 
-            onClick={() => handleItemClick(movie.id)} 
-            className="cursor-pointer"
-          >
-            {movie.title}
-          </ListGroupItem>
-        ))}
-      </ListGroup>
-    </div>
+    <div
+      style={{ background: "black", padding: '50px' }}
+    >
+      <Button
+        className='mx-2 mb-3'
+        onClick={() => navigate('/home')}
+      >
+        Voltar
+      </Button>
+      <div className="search-page container-fluid d-flex flex-column align-items-center">
+        <InputGroup className="input-group input">
+          <InputGroupText className='rounded-0 border-0 icon'>
+            <i className='fa fa-search' />
+          </InputGroupText>
+          <Input
+            className='rounded-0 border-0 input-form'
+            type="text"
+            placeholder="Buscar filmes..."
+            value={query}
+            onChange={handleSearchChange}
+          />
+        </InputGroup>
+        <ListGroup className="mt-3 list">
+          {results.map(movie => (
+            <ListGroupItem
+              key={movie.id}
+              onClick={() => handleItemClick(movie.id)}
+              className="cursor-pointer list-item d-flex align-items-center"
+            >
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                alt={movie.title}
+                className="cast-member-img"
+              />
+              {movie.title}
+            </ListGroupItem>
+          ))}
+        </ListGroup>
+      </div>
+    </div >
   );
 }
 
